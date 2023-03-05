@@ -1,0 +1,216 @@
+abandon	
+abolish	
+absolute
+acceptance	
+accident	
+accountant
+achievement
+acknowledge	
+activate
+addition	
+adjustment	
+admission
+advantage	
+adventure	
+advertise
+adviser	
+advocate	
+afternoon
+agency	
+agenda	
+agreement
+alcohol	
+alliance	
+allocate
+allowance	
+ambition	
+ambulance
+amendment	
+analyse	
+analyst
+animal	
+announcement	
+apartment
+appearance	
+appendix	
+applicant
+appointment
+approval	
+archbishop
+architect	
+area	
+argument
+arrangement
+arrival	
+article
+assemble	
+assembly	
+assessment
+assignment	
+assistance	
+assistant
+Assumption	
+assurance	atmosphere
+attendance	attention	attitude
+attraction	attribute	audience
+auditor	avenue	average
+awareness	barrier	battery
+beginning	behaviour	benefit
+boundary	businessman	cabinet
+calculate	camera	candidate
+Capital	carrier	casual
+catalogue	cathedral	celebrate
+century	champion	Chancellor
+character	charity	chemical
+chocolate	cigarette	cinema
+circulate	circumstance	citizen
+clarify	classify	coincide
+collection	collector	Colony
+commander	commission	commitment
+committee	commonwealth	companion
+company	compensate	completion
+component	compromise	computer
+concentrate	conception	concession
+conclusion	condition	conference
+confidence	confusion	connection
+consciousness	consequence	consider
+Constable	constitute	construction
+consultant	consumer	consumption
+contemplate	Continent	continue
+contribute	convention	conversion
+conviction	correspond	corridor
+councillor	counterpart	coverage
+Creation	creditor	criticise
+criticism	criticize	curious
+currency	customer	database
+decision	decorate	dedicate
+defendant	defender	deficit
+delegate	deliver	Democrat
+demonstrate	density	department
+departure	deposit	Depression
+deputy	description	designer
+destruction	detective	determine
+develop	diagram	dialogue
+diamond	diary	difference
+dimension	diminish	direction
+directive	director	disagree
+disappear	disaster	discipline
+discover	discretion	discussion
+dismissal	disorder	disposal
+distinction	distinguish	distribute
+dividend	division	document
+dominate	duration	edition
+editor	educate	election
+element	embody	emission
+emotion	emperor	emphasise
+emphasize	employee	employer
+employment	enable	encounter
+encourage	enemy	Energy
+engagement	engineer	enquiry
+enterprise	entertain	entitle
+entity	envelope	envisage
+episode	equation	equipment
+equity	establish	estimate
+evidence	examine	example
+exception	excitement	exclusion
+execute	exercise	exhibit
+existence	expansion	expertise
+explosion	exposure	expression
+extension	factory	family
+fantasy	favourite	festival
+formation	formula	formulate
+frequency	funeral	furniture
+gallery	general	generate
+gentleman	government	governor
+graduate	guarantee	guardian
+heritage	hesitate	history
+holiday	horizon	hospital
+idea	illustrate	imagine
+implement	importance	impression
+improvement	incentive	incidence
+incident	indicate	industry
+infection	inflation	influence
+inherit	inhibit	injury
+inquiry	inspection	inspector
+institute	instruction	instrument
+integrate	intention	interest
+interface	interfere	interpret
+interrupt	interval	intervene
+interview	introduce	invasion
+investment	investor	involvement
+isolate	journalist	justify
+leadership	liberty	library
+location	loyalty	magazine
+magistrate	management	manager
+marketing	measurement	mechanism
+medicine	medium	membership
+memory	mineral	minimum
+minister	ministry	modify
+molecule	Monitor	motivate
+multiply	museum	musician
+mystery	negligent	newspaper
+nursery	objection	objective
+observer	occasion	occupy
+offender	officer	official
+opening	Opera	operate
+opinion	opponent	organise
+organism	organize	origin
+overcome	overnight	ownership
+oxygen	paragraph	parliament
+particle	partnership	passenger
+penalty	penetrate	pensioner
+percentage	perception	performance
+period	permission	personnel
+perspective	photograph	piano
+poetry	policeman	policy
+pollution	portfolio	position
+possession	potato	potential
+preference	pregnancy	premium
+President	principle	prisoner
+privilege	procedure	proceeding
+processor	producer	production
+profession	professor	promotion
+property	proportion	proposal
+protection	protein	provision
+publisher	punishment	purchaser
+qualify	quality	quantity
+radio	ratio	reaction
+realise	realize	reassure
+receiver	reception	recession
+recipe	recognise	recognize
+recommend	recording	recover
+reduction	reference	reflection
+refugee	refusal	register
+regulate	reinforce	relation
+relative	religion	remedy
+remember	removal	replacement
+reporter	represent	reproduce
+republic	requirement	researcher
+resemble	residence	resident
+resistance	restaurant	restriction
+retirement	revenue	salary
+satellite	satisfy	scientist
+selection	seminar	sensation
+separate	settlement	shadowy
+shareholder	situate	solution
+specialist	specify	specimen
+stimulate	stimulus	strategy
+studio	subsidy	substitute
+succession	successor	suggestion
+suicide	summary	supervise
+supplement	supplier	supporter
+surgery	survival	suspicion
+sympathy	taxation	teenager
+telephone	tendency	theatre
+theory	therapy	tournament
+tradition	tragedy	transaction
+transition	traveller	Treasury
+tribunal	turnover	uncanny
+undergo	underline	undermine
+understand	undertake	ungainly
+unhappy	uniform	united
+unity	universe	unlikely
+unlucky	unpleasant	unruly
+untidy	vehicle	victory
+video	violence	visitor
+Volunteer	withdrawal

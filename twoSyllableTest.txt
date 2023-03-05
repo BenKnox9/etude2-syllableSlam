@@ -1,0 +1,430 @@
+abbey
+abuse
+achieve
+Acre
+acute
+adjust
+adopt
+advice
+
+Angel	
+anger
+Angle	
+angry	
+announce
+answer	
+appeal	
+appear
+apple	
+apply	
+appoint
+approach	
+
+assert
+assess	
+asset	
+assign
+assist	
+assume	
+assure
+attach	
+attack	
+attain
+attempt	
+attend	
+attract
+audit	
+author	
+autumn
+avoid	
+await	
+award
+baby	
+background	
+baggy
+Balance	
+balmy	
+banking
+basket	
+bastard	
+bathroom
+
+belief	
+
+burden
+bureau	
+burly	
+bury
+bushy	
+business	
+busy
+butter	
+button	
+buyer
+cable	
+campaign	
+
+cater
+ceiling	
+Centre	
+chairman
+challenge	
+chamber	
+Champagne
+channel	
+chapel	
+chapter
+chunky	
+circle
+circuit	
+city	
+
+cloudy	
+clumsy
+Cm	
+coffee	
+collapse
+colleague	
+collect	
+commence	
+comment	
+commit
+compact	
+compare	
+compel
+
+confess
+confine	
+confirm	
+
+content	
+contest
+context	
+contract	
+country	
+county
+couple	
+cousin	
+cover
+crafty	
+crazy	
+creamy
+create	
+creature	
+credit
+cricket	
+crisis	critic
+cruel	crusty	crystal
+cuddly	culture	cunning
+cupboard	curly	curtain
+custom	cycle	daddy
+dainty	damage	danger
+darkness	Darling	data
+daughter	deadly	dealer
+
+dictate	diet	differ
+
+discuss	disease	dislike
+dismiss	display	dispose
+dispute	dissolve	distance
+district	disturb	divert
+divide	Divine	divorce
+
+dumpy	dusky	dusty
+duty	eagle	early
+earthy	Easter	easy
+
+explode	exploit	explore
+export	expose	express
+extend	extent	extract
+extreme	fabric	factor
+failure	fancy	Farmer
+fashion	Father	fatty
+favour	feature	feeling
+fellow	female	fibre
+fiction	fiery	fighting
+figure	filter	filthy
+final	finance	finding
+finger	finish	fire
+fishing	fishy	fizzy
+FL	flashy	fleshy
+flimsy	floppy	flower
+fluffy	fluid	focus
+foggy	follow	football
+forbid	forest	forget
+forgive	format	fortune
+forum	foundation	fraction
+fragment	framework	freedom
+friendly	friendship	frighten
+frilly	frosty	fruity
+fulfil	function	funding
+funny	furry	fussy
+future	fuzzy	garage
+garden	gather	gaudy
+gender	German	gesture
+ghastly	ghostly	glassy
+gloomy	glory	glossy
+
+grimy	gritty	grubby
+gruesome	guideline	guilty
+guitar	habit	hairy
+handle	handsome	Handy
+happen	happy	harbour
+hardware	Hardy	hasty
+hazy	heading	heady
+
+holy	homely	honest
+honour	horror	hotel
+household	housing	human
+humour	hundred	hungry
+hunting	hurry	husband
+husky	icy	ignore
+illness	image	impact
+imply	import	impose
+impress	improve	include
+income	increase	incur
+index	induce	infant
+inform	injure	input
+
+invent	invest	invite
+involve	iron	island
+issue	item	jacket
+jolly	journal	journey
+judgement	judgment	juicy
+junction	jury	Justice
+killer	kindly	kingdom
+kitchen	knowledge	label
+Labour	Lady	landing
+landlord	landscape	language
+lawyer	layer	lazy
+leader	leaflet	leafy
+learning	leather	lecture
+
+lonely	lorry	lousy
+lovely	lover	lower
+lowly	lucky	lumpy
+machine	maintain	Maker
+manage	manner	margin
+market	marriage	marry
+master	matter	mature
+miner	minute	mirror
+
+mummy	murder	murky
+murmur	muscle	music
+mutter	narrow	nasty
+Nation	nature	naughty
+Navy	needle	needy
+neglect	neighbour	network
+nightmare	noisy	notice
+notion	novel	number
+obey	object	obscure
+observe	obtain	occur
+ocean	offence	offer
+office	oily	OK
+omit	open	oppose
+option	Order	organ
+other	outcome	outline
+output	overlook	owner
+package	packet	painter
+painting	palace	panel
+panic	paper	parent
+parish	partner	party
+
+pretty	prevail	prevent
+prickly	princely	princess
+printer	prison	problem
+proceed	process	proclaim
+produce	product	profile
+
+provoke	prudent	public
+publish	punish	pupil
+purchase	purple	purpose
+pursue	quarter	question
+quiet	rabbit	railway
+rainy	reader	Reading
+ready	real	reason
+
+render	
+renew	
+repair
+repeat	
+replace	
+reply
+report	
+request	
+require
+rescue	
+research	
+reserve
+resign	
+resist	
+resolve
+resort	
+resource	
+respect
+respond	
+response	
+restore
+restrict	
+result	
+resume
+retain	
+retire	
+return
+reveal	
+reverse	
+review
+revise	
+revive	
+reward
+rhythm	
+riot	
+risky
+rival	
+river	
+robust
+rocky	
+rosy	
+routine
+rubbish	
+ruddy	
+rumour
+running	
+rusty	
+safety
+salty	
+sample	
+sandwich
+sandy	
+saving	
+scandal
+scary	
+scatter	
+schedule
+scholar	
+science	
+scruffy
+secure	
+select	
+seller
+sentence	
+sequence	
+sergeant
+servant	
+server	
+Service
+session	
+setting	
+settle
+severe	
+sexy	
+shabby
+shadow	
+shady	
+shaky
+shallow	
+shiny	
+shiver
+shopping	
+shortage	
+shoulder
+support	
+suppose	
+suppress
+surface	
+surprise	
+surround
+survey	
+survive	
+suspect
+suspend	
+sustain	
+swallow
+swimming	
+symbol	
+symptom
+system	
+table	
+tackle
+tactic	
+talent	
+target
+tasty	
+taxi	
+teacher
+teaching	
+technique	
+temple
+tenant	
+tension	
+terrace
+testing	
+
+tighten
+timber	
+timing	
+tiny
+tissue	title	toilet
+topic	Tory	total
+tourist	tower	trader
+trading	traffic	trainer
+
+tremble	trendy	trial
+tricky	triumph	trouble
+trustee	trusty	tunnel
+tutor	TV	ugly
+uncle	
+unfair	
+Union
+unit	
+unite	
+UNIX
+unkind	
+unsold	
+update
+upset	
+urgent	
+user
+valley	
+value	
+vanish
+vary	
+vendor	
+venture
+version	
+very	
+vessel
+victim	
+Villa	
+Village
+virtue	
+virus	
+vision
+visit	
+volume	
+voter
+wacky	
+wander	
+warning
+wary	
+water	
+weaken
+weakness	
+wealthy	
+
+welcome	
+welfare	
+whisky
+whisper	
+widen	
+
+working
+workshop	
+worldly	
+worry
+worthy	
+writer	
+writing
+yellow	
+youngster	
+zany
