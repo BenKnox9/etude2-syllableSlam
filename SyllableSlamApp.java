@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class SyllableSlamApp {
@@ -109,13 +111,20 @@ public class SyllableSlamApp {
             }
         }
 
-        // TODO: check for flip between second to last and last letter
-
+        if (!isVowel(word.charAt(word.length()-2)) && isVowel(word.charAt(word.length()-1))) { // last read a consonant and now reading a vowel
+            return 1;
+        } // vowel+consonant
+        else if (isVowel(word.charAt(word.length()-2)) && !isVowel(word.charAt(word.length()-1))) { // last read a vowel and now reading a consonant
+            return 1;
+        } // consonant+y
         return 0;
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        File testText = new File("C:/Users/dud3h/Documents/COSC 326/COSC326 - Syllable Slam/syllable_slam/threeSyllableTest.txt");
+        // Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(testText);
+
         if (args.length != 1) {
             System.err.println("Usage: java cmd <numsyllables>");
         }
@@ -130,6 +139,7 @@ public class SyllableSlamApp {
                 System.out.println(line + " " + countSyllables(line));
             }
         }
+        System.out.println("Tests Concluded");
         sc.close();
     }
 
