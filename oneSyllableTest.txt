@@ -278,8 +278,7 @@ Earth
 ease
 eat	
 edge	
-egg
-elect	
+egg	
 end	
 EST
 eye	
@@ -308,7 +307,6 @@ field
 fierce
 FIG
 fight	
-file
 fill	
 film	
 find
@@ -415,7 +413,6 @@ IN
 INC
 inch
 inn
-isle
 jet
 Jew	
 Job	
@@ -571,7 +568,6 @@ strip
 stroke
 strong	
 stuff	
-style
 suck	
 Sue	
 suit
@@ -631,8 +627,7 @@ van
 vast
 VAT	
 verse	
-view
-vile	
+view	
 voice	
 void
 vote	

@@ -74,8 +74,7 @@ circle
 circuit	
 city	
 cloudy	
-clumsy
-Cm	
+clumsy	
 coffee	
 collapse
 colleague	
@@ -106,8 +105,7 @@ creature
 credit
 cricket	
 crisis	
-critic
-cruel	
+critic	
 crusty	
 crystal
 cuddly	
@@ -193,8 +191,7 @@ finish
 fire
 fishing	
 fishy	
-fizzy
-FL	
+fizzy	
 flashy	
 fleshy
 flimsy	
@@ -213,7 +210,6 @@ forgive
 format	
 fortune
 forum	
-foundation	
 fraction
 fragment	
 framework	
@@ -410,8 +406,7 @@ organ
 other	
 outcome	
 outline
-output	
-overlook	
+output		
 owner
 package	
 packet	
@@ -439,7 +434,6 @@ process
 proclaim
 produce	
 product	
-profile
 provoke	
 prudent	
 public
@@ -458,8 +452,7 @@ railway
 rainy	
 reader	
 Reading
-ready	
-real	
+ready		
 reason
 render	
 renew	
