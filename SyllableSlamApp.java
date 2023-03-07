@@ -155,29 +155,30 @@ public class SyllableSlamApp {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        File testText = new File("C:/Users/dud3h/Documents/COSC 326/COSC326 - Syllable Slam/syllable_slam/sixSyllableTest.txt");
-        Scanner sc = new Scanner(testText);
+        // File testText = new File("C:/Users/dud3h/Documents/COSC 326/COSC326 - Syllable Slam/syllable_slam/sixSyllableTest.txt");
+        // Scanner sc = new Scanner(testText);
 
-        // Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
 
-        if (args.length != 1) {
-            System.err.println("Usage: java cmd <numsyllables>");
-        }
-        int problemCount = 0;
-        int numSyllables = Integer.parseInt(args[0]);
+        // if (args.length != 1) {
+        //     System.err.println("Usage: java cmd <numsyllables>");
+        // }
+        // int problemCount = 0;
+        // int numSyllables = Integer.parseInt(args[0]);
         while (sc.hasNextLine()) {
             String line = sc.nextLine();
             line = line.strip();
             line = line.toLowerCase();
             int res = countSyllables(line);
-            if (res != numSyllables) {
-                problemCount ++;
-                System.out.println(line + " " + countSyllables(line));
-            }
+            System.out.println(res);
+            // if (res != numSyllables) {
+            //     problemCount ++;
+            //     System.out.println(line + " " + countSyllables(line));
+            // }
         }
-        System.out.println("Tests Concluded");
-        System.out.println("Problem count = " + problemCount);
+        // System.out.println("Tests Concluded");
+        // System.out.println("Problem count = " + problemCount);
         sc.close();
     
     }
