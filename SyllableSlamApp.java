@@ -28,7 +28,7 @@ public class SyllableSlamApp {
         int clumpCount = 1;
 
         Boolean isVowel = false; // was the last letter a vowel
-        Boolean isI = false; // last letter was an I
+        // Boolean isI = false; // last letter was an I
 
         if (isVowel(word.charAt(0))) {
             isVowel = true;
@@ -38,23 +38,23 @@ public class SyllableSlamApp {
             // consonant+vowel
             if (!isVowel && isVowel(word.charAt(i))) { // last read a consonant and now reading a vowel
                 clumpCount++;
-                if (word.charAt(i) == 'i'){
-                    isI = true;
-                } else{
-                    isI = false;
-                }
+                // if (word.charAt(i) == 'i'){
+                //     isI = true;
+                // } else{
+                //     isI = false;
+                // }
                 isVowel = true;
             } // vowel+consonant
-            else if (isI && isVowel(word.charAt(i))) { // last one was an I and now we're looking at another vowel
-                if (word.charAt(word.length() - 1) != 'n'){
-                    clumpCount++;
-                }
-                isI = false;
-            }
+            // else if (isI && isVowel(word.charAt(i))) { // last one was an I and now we're looking at another vowel
+            //     if (word.charAt(word.length() - 1) != 'n'){
+            //         clumpCount++;
+            //     }
+            //     isI = false;
+            // }
             else if (isVowel && !isVowel(word.charAt(i))) { // last read a vowel and now reading a consonant
                 clumpCount++;
                 isVowel = false;
-                isI = false;
+                // isI = false;
             } // consonant+y
             else if (!isVowel && letterY.contains(Character.toString(word.charAt(i)))) {
                 // check on right of y - if have vowel clump, don't increase vowel count
@@ -62,12 +62,15 @@ public class SyllableSlamApp {
                     clumpCount++;
                     isVowel = true;
                 }
-                isI = false;
+                // isI = false;
             }// is i+vowel (needs be in middle?)
         }
         // check for last letter e.g. y or le
 
         clumpCount += checkLastLetter(word);
+        if (word.contains("ia") || word.contains("iu")){
+            clumpCount+=2;
+        }
 
         return clumpCount / 2;
     }
@@ -152,7 +155,7 @@ public class SyllableSlamApp {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        File testText = new File("C:/Users/dud3h/Documents/COSC 326/COSC326 - Syllable Slam/syllable_slam/oneSyllableTest.txt");
+        File testText = new File("C:/Users/dud3h/Documents/COSC 326/COSC326 - Syllable Slam/syllable_slam/sixSyllableTest.txt");
         Scanner sc = new Scanner(testText);
 
         // Scanner sc = new Scanner(System.in);
