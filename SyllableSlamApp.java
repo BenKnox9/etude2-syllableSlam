@@ -39,18 +39,19 @@ public class SyllableSlamApp {
             if (!isVowel && isVowel(word.charAt(i))) { // last read a consonant and now reading a vowel
                 clumpCount++;
                 // if (word.charAt(i) == 'i'){
-                //     isI = true;
+                // isI = true;
                 // } else{
-                //     isI = false;
+                // isI = false;
                 // }
                 isVowel = true;
             } // vowel+consonant
-            // else if (isI && isVowel(word.charAt(i))) { // last one was an I and now we're looking at another vowel
-            //     if (word.charAt(word.length() - 1) != 'n'){
-            //         clumpCount++;
-            //     }
-            //     isI = false;
-            // }
+              // else if (isI && isVowel(word.charAt(i))) { // last one was an I and now we're
+              // looking at another vowel
+              // if (word.charAt(word.length() - 1) != 'n'){
+              // clumpCount++;
+              // }
+              // isI = false;
+              // }
             else if (isVowel && !isVowel(word.charAt(i))) { // last read a vowel and now reading a consonant
                 clumpCount++;
                 isVowel = false;
@@ -63,13 +64,13 @@ public class SyllableSlamApp {
                     isVowel = true;
                 }
                 // isI = false;
-            }// is i+vowel (needs be in middle?)
+            } // is i+vowel (needs be in middle?)
         }
         // check for last letter e.g. y or le
 
         clumpCount += checkLastLetter(word);
-        if (word.contains("ia") || word.contains("iu")){
-            clumpCount+=2;
+        if (word.contains("ia") || word.contains("iu")) {
+            clumpCount += 2;
         }
 
         return clumpCount / 2;
@@ -111,7 +112,7 @@ public class SyllableSlamApp {
             // else word ends in consonant+y, add to the count.
             char x = word.charAt(word.length() - 2);
             if (isVowel(x)) {
-                if (x=='e'){
+                if (x == 'e') {
                     return 1;
                 }
                 return 0;
@@ -127,42 +128,45 @@ public class SyllableSlamApp {
             // If word ends in consonant+e, return 0
             char x = word.charAt(word.length() - 2);
             if (x == 'l') {
-                if (!isVowel(word.charAt(word.length()-3))){
+                if (!isVowel(word.charAt(word.length() - 3))) {
                     return 2;
-                } else{
+                } else {
                     return 0;
                 }
-            }
-            else if (x=='r'){
-                if (!isVowel(word.charAt(word.length()-3))){
+            } else if (x == 'r') {
+                if (!isVowel(word.charAt(word.length() - 3))) {
                     return 2;
-                } else{
+                } else {
                     return 0;
                 }
-            }
-            else if (!isVowel(x)) {
+            } else if (!isVowel(x)) {
                 return 0;
             }
         }
 
-        if (!isVowel(word.charAt(word.length()-2)) && isVowel(word.charAt(word.length()-1))) { // last read a consonant and now reading a vowel
+        if (!isVowel(word.charAt(word.length() - 2)) && isVowel(word.charAt(word.length() - 1))) { // last read a
+                                                                                                   // consonant and now
+                                                                                                   // reading a vowel
             return 1;
         } // vowel+consonant
-        else if (isVowel(word.charAt(word.length()-2)) && !isVowel(word.charAt(word.length()-1))) { // last read a vowel and now reading a consonant
+        else if (isVowel(word.charAt(word.length() - 2)) && !isVowel(word.charAt(word.length() - 1))) { // last read a
+                                                                                                        // vowel and now
+                                                                                                        // reading a
+                                                                                                        // consonant
             return 1;
         } // consonant+y
         return 0;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        // File testText = new File("C:/Users/dud3h/Documents/COSC 326/COSC326 - Syllable Slam/syllable_slam/sixSyllableTest.txt");
+        // File testText = new File("C:/Users/dud3h/Documents/COSC 326/COSC326 -
+        // Syllable Slam/syllable_slam/sixSyllableTest.txt");
         // Scanner sc = new Scanner(testText);
 
         Scanner sc = new Scanner(System.in);
 
-
         // if (args.length != 1) {
-        //     System.err.println("Usage: java cmd <numsyllables>");
+        // System.err.println("Usage: java cmd <numsyllables>");
         // }
         // int problemCount = 0;
         // int numSyllables = Integer.parseInt(args[0]);
@@ -170,17 +174,22 @@ public class SyllableSlamApp {
             String line = sc.nextLine();
             line = line.strip();
             line = line.toLowerCase();
+
+            if (line.length() <= 0) {
+                System.out.println();
+                continue;
+            }
             int res = countSyllables(line);
             System.out.println(res);
             // if (res != numSyllables) {
-            //     problemCount ++;
-            //     System.out.println(line + " " + countSyllables(line));
+            // problemCount ++;
+            // System.out.println(line + " " + countSyllables(line));
             // }
         }
         // System.out.println("Tests Concluded");
         // System.out.println("Problem count = " + problemCount);
         sc.close();
-    
+
     }
 
 }
