@@ -55,12 +55,38 @@ public class SyllableSlamApp {
         // check for last letter e.g. y or le
 
         clumpCount += checkLastLetter(word);
-        
+
         if (word.contains("ia") || word.contains("iu") || word.contains("io")) {
             clumpCount += 2;
         }
 
-        return clumpCount / 2;
+        clumpCount = clumpCount / 2;
+        // decrease count if word ends in ion
+        if (word.contains("ia") && word.substring(word.length() - 3).toLowerCase().equals("ion")) {
+            clumpCount++;
+        } else if (word.substring(word.length() - 3).toLowerCase().equals("ion")) {
+            clumpCount--;
+        }
+
+        if (word.substring(word.length() - 3).toLowerCase().equals("ism")) {
+            clumpCount++;
+        }
+        if (word.substring(word.length() - 3).toLowerCase().equals("ely")) {
+            clumpCount--;
+        }
+        if (word.substring(word.length() - 3).toLowerCase().equals("que")
+                || word.substring(word.length() - 3).toLowerCase().equals("gue")) {
+            clumpCount--;
+        }
+
+        if (word.contains("ua") && word.indexOf("ua") > 0) {
+            if (word.charAt(word.indexOf("ua") - 1) != 'q') {
+                clumpCount++;
+            }
+
+        }
+
+        return clumpCount;
     }
 
     /**
@@ -146,24 +172,24 @@ public class SyllableSlamApp {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        File testText = new File("C:/Users/dud3h/Documents/COSC 326/COSC326-Syllable Slam/syllable_slam/oneSyllableTests.txt");
-
+        File testText = new File(
+                "C:/Users/dud3h/Documents/COSC 326/COSC326-Syllable Slam/syllable_slam/oneSyllableTests.txt");
 
         // File answersText = new File("syllable_slam/SyllableSlamApp.java");
         // Scanner sc2 = new Scanner(answersText);
         // ArrayList<Integer> Answers = new ArrayList<>();
 
-         Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         if (args.length == 2) {
             String fileName1 = args[0]; // words/in.txt
             String fileName2 = args[1]; // out.txt
-            try{
-                Scanner scan1 = new Scanner(new File("./"+fileName1));
-                Scanner scan2 = new Scanner(new File("./"+fileName2));
+            try {
+                Scanner scan1 = new Scanner(new File("./" + fileName1));
+                Scanner scan2 = new Scanner(new File("./" + fileName2));
                 int problemCount = 0;
-                int countTotal =0;
-                while(scan1.hasNextLine()){
+                int countTotal = 0;
+                while (scan1.hasNextLine()) {
                     String line = scan1.nextLine(); // word from file
                     String expResString = scan2.nextLine();
                     line = line.strip();
@@ -175,58 +201,57 @@ public class SyllableSlamApp {
                     }
 
                     int res = countSyllables(line);// calculated res
-                    
+
                     int expectedRes;
-                    try{
+                    try {
                         expectedRes = Integer.parseInt(expResString);
-                    }catch(NumberFormatException e){
+                    } catch (NumberFormatException e) {
                         System.err.println("Is not a number");
                         continue;
                     }
-                    
-                    
-                    
+
                     if (res != expectedRes) {
-                        problemCount ++;
-                        System.out.println(line + " " + res+" "+expectedRes);
+                        problemCount++;
+                        System.out.println(line + " " + res + " " + expectedRes);
                     }
                     countTotal++;
                 }
                 System.out.println("Tests Concluded");
                 System.out.println("Problem count = " + problemCount);
-                System.out.println("Total: "+countTotal);
-                System.out.println("Percentage: "+(1.0-(problemCount/(double)countTotal)));
+                System.out.println("Total: " + countTotal);
+                System.out.println("Percentage: " + (1.0 - (problemCount / (double) countTotal)));
 
-            }catch(FileNotFoundException e){
+            } catch (FileNotFoundException e) {
                 System.err.println("File Not found\nUsage: java <program_name> <test_file>");
             }
-        
-        }
-        if(args.length != 0){ // needs be zero args for normal testing
+
+        } else if (args.length != 0) { // needs be zero args for normal testing
             System.err.println("Usage: java <program_name>");
             return;
-        }
+        } else if (args.length == 0) {
 
-       // int numSyllables = Integer.parseInt(args[0]);
-        while (sc.hasNextLine()) {
-            String line = sc.nextLine();
-            line = line.strip();
-            line = line.toLowerCase();
+            // int numSyllables = Integer.parseInt(args[0]);
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                line = line.strip();
+                line = line.toLowerCase();
 
-            if (line.length() <= 0) {
-                System.out.println();
-                continue;
+                if (line.length() <= 0) {
+                    System.out.println();
+                    continue;
+                }
+                int res = countSyllables(line);
+                System.out.println(res);
+                /*
+                 * if (res != numSyllables) {
+                 * System.out.println(line + " " + countSyllables(line));
+                 * }
+                 */
             }
-            int res = countSyllables(line);
-             System.out.println(res);
-             /*
-            if (res != numSyllables) {
-                System.out.println(line + " " + countSyllables(line));
-            }*/
+
+            sc.close();
+
         }
-
-        sc.close();
-
     }
 
 }
