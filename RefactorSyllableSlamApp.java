@@ -2,16 +2,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class SyllableSlamApp {
+public class RefactorSyllableSlamApp {
 
     // aexaemple
     // idle - 1
     // e is vowel, x not vowel
     //
     // do we want 'y' as a vowel too?
-    private static String vowels = "aeiou";
+    private static String vowels = "aeiouy";
     private static String letterY = "y";
     private static String letterE = "e";
+    private static String[] subWords;
 
     // need check for apostrophe words
     /**
@@ -19,75 +20,52 @@ public class SyllableSlamApp {
      * 
      * @param word word string to pass in
      * @return number of syllables
+     * happy == hap.add --> --> .add(/) --. py.add
      */
-
-     
     private static int countSyllables(String word) {
         if (word.length() <= 2) {
             return 1;
         }
 
-        int clumpCount = 1;
+        int constCount = 0;
+        int vowelCount = 0;
+        
 
-        Boolean isVowel = false; // was the last letter a vowel
+        Boolean wasVowel = false; // was the last letter a vowel
         // Boolean isI = false; // last letter was an I
 
         if (isVowel(word.charAt(0))) {
-            isVowel = true;
+            wasVowel = true;
+            vowelCount++;
+        }else{
+            constCount++;
         }
         // loop from 2nd to second last letter
-        for (int i = 1; i < word.length() - 1; i++) {
+        for (int i = 0; i < word.length() - 1; i++) {
+            // need to check if is a space/hyphen
             // consonant+vowel
-            if (!isVowel && isVowel(word.charAt(i))) { // last read a consonant and now reading a vowel
-                clumpCount++;
-                isVowel = true;
+            if (!wasVowel && isVowel(word.charAt(i))) { // last read a consonant and now reading a vowel
+                constCount = 0;
+                wasVowel = true;
+                vowelCount++;
+
             } // vowel+consonant
-            else if (isVowel && !isVowel(word.charAt(i))) { // last read a vowel and now reading a consonant
-                clumpCount++;
-                isVowel = false;
-            } // consonant+y
-            else if (!isVowel && letterY.contains(Character.toString(word.charAt(i)))) {
-                // check on right of y - if have vowel clump, don't increase vowel count
-                if (checkForY(word, i)) {
-                    clumpCount++;
-                    isVowel = true;
+            else if (wasVowel && !isVowel(word.charAt(i))) { // last read a vowel and now reading a consonant
+                constCount++;
+                wasVowel = false;
+                vowelCount = 0;
+                // add hyphen before single consonant - need check if it's two const's - also
+                if (word.length() > (i + 1) && !isVowel(word.charAt(i + 1))) {
+
                 }
+            } // space or hyphen
+            else {
+                constCount = 0;
+                vowelCount = 0;
             }
         }
+        return 0;
         // check for last letter e.g. y or le
-
-        clumpCount += checkLastLetter(word);
-
-        if (word.contains("ia") || word.contains("iu") || word.contains("io")) {
-            clumpCount += 2;
-        }
-
-        clumpCount = clumpCount / 2;
-        // decrease count if word ends in ion
-        if (word.contains("ia") && word.substring(word.length() - 3).toLowerCase().equals("ion")) {
-            clumpCount++;
-        } else if (word.substring(word.length() - 3).toLowerCase().equals("ion")) {
-            clumpCount--;
-        }
-
-        if (word.substring(word.length() - 3).toLowerCase().equals("ism")) {
-            clumpCount++;
-        }
-        if (word.substring(word.length() - 3).toLowerCase().equals("ely")) {
-            clumpCount--;
-        }
-        if (word.substring(word.length() - 3).toLowerCase().equals("que")
-                || word.substring(word.length() - 3).toLowerCase().equals("gue")) {
-            clumpCount--;
-        }
-
-        if (word.contains("ua") && word.indexOf("ua") > 0) {
-            if (word.charAt(word.indexOf("ua") - 1) != 'q') {
-                clumpCount++;
-            }
-
-        }
-        return clumpCount;
     }
 
     /**
