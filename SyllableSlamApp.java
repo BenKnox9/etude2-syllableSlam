@@ -62,7 +62,9 @@ public class SyllableSlamApp {
 
         clumpCount = clumpCount / 2;
         // decrease count if word ends in ion
-        if (word.substring(word.length() - 3).toLowerCase().equals("ion")) {
+        if (word.contains("ia") && word.substring(word.length() - 3).toLowerCase().equals("ion")) {
+            clumpCount++;
+        } else if (word.substring(word.length() - 3).toLowerCase().equals("ion")) {
             clumpCount--;
         }
 
@@ -72,12 +74,18 @@ public class SyllableSlamApp {
         if (word.substring(word.length() - 3).toLowerCase().equals("ely")) {
             clumpCount--;
         }
-        if (word.contains("ua")) {
+        if (word.substring(word.length() - 3).toLowerCase().equals("que")
+                || word.substring(word.length() - 3).toLowerCase().equals("gue")) {
+            clumpCount--;
+        }
+
+        if (word.contains("ua") && word.indexOf("ua") > 0) {
             if (word.charAt(word.indexOf("ua") - 1) != 'q') {
                 clumpCount++;
             }
 
         }
+
         return clumpCount;
     }
 
@@ -217,33 +225,33 @@ public class SyllableSlamApp {
                 System.err.println("File Not found\nUsage: java <program_name> <test_file>");
             }
 
-        }
-        if (args.length != 0) { // needs be zero args for normal testing
+        } else if (args.length != 0) { // needs be zero args for normal testing
             System.err.println("Usage: java <program_name>");
             return;
-        }
+        } else if (args.length == 0) {
 
-        // int numSyllables = Integer.parseInt(args[0]);
-        while (sc.hasNextLine()) {
-            String line = sc.nextLine();
-            line = line.strip();
-            line = line.toLowerCase();
+            // int numSyllables = Integer.parseInt(args[0]);
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                line = line.strip();
+                line = line.toLowerCase();
 
-            if (line.length() <= 0) {
-                System.out.println();
-                continue;
+                if (line.length() <= 0) {
+                    System.out.println();
+                    continue;
+                }
+                int res = countSyllables(line);
+                System.out.println(res);
+                /*
+                 * if (res != numSyllables) {
+                 * System.out.println(line + " " + countSyllables(line));
+                 * }
+                 */
             }
-            int res = countSyllables(line);
-            System.out.println(res);
-            /*
-             * if (res != numSyllables) {
-             * System.out.println(line + " " + countSyllables(line));
-             * }
-             */
+
+            sc.close();
+
         }
-
-        sc.close();
-
     }
 
 }
