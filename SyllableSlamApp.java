@@ -12,6 +12,7 @@ public class SyllableSlamApp {
     private static String vowels = "aeiou";
     private static String letterY = "y";
     private static String letterE = "e";
+    private static List<String> reverseDi = Arrays.asList("ua", "ie");
 
     // need check for apostrophe words
     /**
@@ -21,7 +22,6 @@ public class SyllableSlamApp {
      * @return number of syllables
      */
 
-     
     private static int countSyllables(String word) {
         if (word.length() <= 2) {
             return 1;
@@ -87,6 +87,11 @@ public class SyllableSlamApp {
             }
 
         }
+        // if (word.contains("ie") && word.indexOf("ie") > 0) {
+
+        // clumpCount++;
+
+        // }
         return clumpCount;
     }
 
@@ -179,6 +184,23 @@ public class SyllableSlamApp {
         // File answersText = new File("syllable_slam/SyllableSlamApp.java");
         // Scanner sc2 = new Scanner(answersText);
         // ArrayList<Integer> Answers = new ArrayList<>();
+        String filename_in = "mhyph.txt";
+        String filename_out = "mhyph_out.txt";
+        Scanner scf1 = new Scanner(new File(filename_in));
+        Scanner scf2 = new Scanner(new File(filename_out));
+        HashMap<String, Integer> syllableSplits = new HashMap<String, Integer>();
+        ArrayList<String> arr = new ArrayList<>();
+        ArrayList<Integer> arr_num = new ArrayList<>();
+        String[] s;
+        // create hash set from dict
+        while (scf1.hasNextLine()) {
+            String l = scf1.nextLine();
+            // s = scf1.nextLine().split("[ \\n]");
+            Integer num = Integer.parseInt(scf2.nextLine());
+            // for(String str : s ) arr.add(str);
+            // arr_num.add(num);
+            syllableSplits.put(l, num);
+        }
 
         Scanner sc = new Scanner(System.in);
 
@@ -200,8 +222,13 @@ public class SyllableSlamApp {
 
                         continue;
                     }
-
-                    int res = countSyllables(line);// calculated res
+                    // choose whether to use hashset or
+                    int res;
+                    if (syllableSplits.containsKey(line)) {
+                        res = syllableSplits.get(line);
+                    } else {
+                        res = countSyllables(line);// calculated res
+                    }
 
                     int expectedRes;
                     try {
