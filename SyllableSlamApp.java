@@ -193,6 +193,8 @@ public class SyllableSlamApp {
         // create hash set from dict
         while (scf1.hasNextLine()) {
             String l = scf1.nextLine();
+            l = l.strip();
+            l = l.toLowerCase();
             // s = scf1.nextLine().split("[ \\n]");
             Integer num = Integer.parseInt(scf2.nextLine());
             // for(String str : s ) arr.add(str);
