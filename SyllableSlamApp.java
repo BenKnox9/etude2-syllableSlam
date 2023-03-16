@@ -181,6 +181,9 @@ public class SyllableSlamApp {
 
     /** Main method for testing countSyllables method and computing hashmap */
     public static void main(String[] args) throws FileNotFoundException {
+
+        final long startTime = System.currentTimeMillis();
+
         File testText = new File(
                 "C:/Users/dud3h/Documents/COSC 326/COSC326-Syllable Slam/syllable_slam/oneSyllableTests.txt");
 
@@ -283,6 +286,9 @@ public class SyllableSlamApp {
             sc.close();
 
         }
+        final long endTime = System.currentTimeMillis();
+        System.out.println("Total execution time: " + (endTime - startTime));
+
     }
 
 }
