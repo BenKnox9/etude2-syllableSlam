@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+/** Class to test methods which compute the number of syllables in a word */
 public class SyllableSlamApp {
 
     // aexaemple
@@ -12,11 +13,11 @@ public class SyllableSlamApp {
     private static String vowels = "aeiou";
     private static String letterY = "y";
     private static String letterE = "e";
-    private static List<String> reverseDi = Arrays.asList("ua", "ie");
 
     // need check for apostrophe words
+
     /**
-     * method to count and return num syllables in word
+     * Method to count and return num syllables in word
      * 
      * @param word word string to pass in
      * @return number of syllables
@@ -123,75 +124,72 @@ public class SyllableSlamApp {
         return false;
     }
 
+    /**
+     * Checks for special cases around last letter e.g. if it is C+y,
+     * C+le or C+re, should add two extra syllable counts. If it is ending with ey
+     * or C+V or V+C, it just adds one syllable counts, otherwise adds none.
+     * 
+     * @param word word with last letter to check
+     * @return number of syllables to add on for last letter cases
+     */
     private static int checkLastLetter(String word) {
         // last letter is y
         if (letterY.contains(Character.toString(word.charAt(word.length() - 1)))) {
             // check 2nd last letter
             // If word ends in vowel+y, don't add
             // else word ends in consonant+y, add to the count.
-            char x = word.charAt(word.length() - 2);
-            if (isVowel(x)) {
-                if (x == 'e') {
+            char x = word.charAt(word.length() - 2); // prev letter
+            if (isVowel(x)) { // vowel+y
+                if (x == 'e') { // ey
                     return 1;
                 }
                 return 0;
-            } else {
+            } else { // consonant+y
                 return 2;
             }
         }
 
         // last letter is e
         if (letterE.contains(Character.toString(word.charAt(word.length() - 1)))) {
-            // check previous letter
-            // If word ends in l+e return 2
-            // If word ends in consonant+e, return 0
-            char x = word.charAt(word.length() - 2);
+            char x = word.charAt(word.length() - 2); // prev letter
+            // Consonant + l + e
             if (x == 'l') {
                 if (!isVowel(word.charAt(word.length() - 3))) {
                     return 2;
                 } else {
                     return 0;
                 }
-            } else if (x == 'r') {
+            } else if (x == 'r') { // Consonant + r + e
                 if (!isVowel(word.charAt(word.length() - 3))) {
                     return 2;
                 } else {
                     return 0;
                 }
-            } else if (!isVowel(x)) {
+            } else if (!isVowel(x)) { // consonant + e
                 return 0;
             }
         }
-
-        if (!isVowel(word.charAt(word.length() - 2)) && isVowel(word.charAt(word.length() - 1))) { // last read a
-                                                                                                   // consonant and now
-                                                                                                   // reading a vowel
+        // consonant + vowel(last)
+        if (!isVowel(word.charAt(word.length() - 2)) && isVowel(word.charAt(word.length() - 1))) {
             return 1;
-        } // vowel+consonant
-        else if (isVowel(word.charAt(word.length() - 2)) && !isVowel(word.charAt(word.length() - 1))) { // last read a
-                                                                                                        // vowel and now
-                                                                                                        // reading a
-                                                                                                        // consonant
+        } // vowel+consonant(last)
+        else if (isVowel(word.charAt(word.length() - 2)) && !isVowel(word.charAt(word.length() - 1))) {
             return 1;
         } // consonant+y
         return 0;
     }
 
+    /** Main method for testing countSyllables method and computing hashmap */
     public static void main(String[] args) throws FileNotFoundException {
         File testText = new File(
                 "C:/Users/dud3h/Documents/COSC 326/COSC326-Syllable Slam/syllable_slam/oneSyllableTests.txt");
 
-        // File answersText = new File("syllable_slam/SyllableSlamApp.java");
-        // Scanner sc2 = new Scanner(answersText);
-        // ArrayList<Integer> Answers = new ArrayList<>();
-        String filename_in = "mhyph.txt";
-        String filename_out = "mhyph_out.txt";
+        String filename_in = "mhyph.txt"; // input file of words for hashmap
+        String filename_out = "mhyph_out.txt"; // output file of expected syllable counts for hashmap
         Scanner scf1 = new Scanner(new File(filename_in));
         Scanner scf2 = new Scanner(new File(filename_out));
         HashMap<String, Integer> syllableSplits = new HashMap<String, Integer>();
-        ArrayList<String> arr = new ArrayList<>();
-        ArrayList<Integer> arr_num = new ArrayList<>();
-        String[] s;
+
         // create hash set from dict
         while (scf1.hasNextLine()) {
             String l = scf1.nextLine();
@@ -204,7 +202,7 @@ public class SyllableSlamApp {
 
         Scanner sc = new Scanner(System.in);
 
-        if (args.length == 2) {
+        if (args.length == 2) {// for passing in test files (testing program)
             String fileName1 = args[0]; // words/in.txt
             String fileName2 = args[1]; // out.txt
             try {
@@ -255,8 +253,9 @@ public class SyllableSlamApp {
 
         } else if (args.length != 0) { // needs be zero args for normal testing
             System.err.println("Usage: java <program_name>");
+            sc.close();
             return;
-        } else if (args.length == 0) {
+        } else if (args.length == 0) { // normal testing via stdin
 
             // int numSyllables = Integer.parseInt(args[0]);
             while (sc.hasNextLine()) {
@@ -268,13 +267,15 @@ public class SyllableSlamApp {
                     System.out.println();
                     continue;
                 }
-                int res = countSyllables(line);
+                // choose whether to use hashset or
+                int res;
+                if (syllableSplits.containsKey(line)) {
+                    res = syllableSplits.get(line);
+                } else {
+                    res = countSyllables(line);// calculated res
+                }
                 System.out.println(res);
-                /*
-                 * if (res != numSyllables) {
-                 * System.out.println(line + " " + countSyllables(line));
-                 * }
-                 */
+
             }
 
             sc.close();
