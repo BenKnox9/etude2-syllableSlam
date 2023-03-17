@@ -21,7 +21,7 @@ To test the program, we passed in a file with words in which to compute the numb
 e.g.
 ```
 javac SyllableSlamApp.java
-java SyllableSlamApp.java syllableTests.txt out.txt
+java SyllableSlamApp.java syllableTests.txt syllableTests_out.txt
 
 bar 2 1
 bomb 2 1
