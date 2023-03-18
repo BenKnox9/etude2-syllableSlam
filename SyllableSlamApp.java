@@ -4,7 +4,8 @@ import java.util.*;
 
 /** Class to test methods which compute the number of syllables in a word */
 public class SyllableSlamApp {
-    private static HashMap<String, Integer> syllableSplits;
+    /** Hashmap to store words as keys and syllable counts as values */
+    private static HashMap<String, Integer> syllableSplits = new HashMap<>();
 
     /**
      * Method to scan words from stdin and prints the calculated syllable count
@@ -108,7 +109,6 @@ public class SyllableSlamApp {
         String filename_out = "mhyph_out.txt"; // output file of expected syllable counts for hashmap
         Scanner scf1 = new Scanner(new File(filename_in));
         Scanner scf2 = new Scanner(new File(filename_out));
-        HashMap<String, Integer> syllableSplits = new HashMap<String, Integer>();
 
         // create hash map from dict
         // loop through each line in input file of words for hashmap, add it
