@@ -99,7 +99,6 @@ public class SyllableSlamApp {
 
     /** Main method for testing countSyllables method (and computing hashmap) */
     public static void main(String[] args) throws FileNotFoundException {
-
         final long startTime = System.currentTimeMillis();
 
         File testText = new File(
@@ -140,7 +139,6 @@ public class SyllableSlamApp {
         }
         final long endTime = System.currentTimeMillis();
         System.out.println("Total execution time: " + (endTime - startTime));
-
     }
 
 }
