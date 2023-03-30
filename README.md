@@ -58,6 +58,9 @@ hashmap based on this dataset, that is to map each word with its expected syllab
 be more time consuming to load in the data to the hashmap, it would be much more accurate, provided our dataset
 covered a good range of words.
 
+Before implementinmg the HashMap idea, we needed a data set of words with their respected syllables. Using the original mhyphs.txt file, words were split using a bullet point. So we first scanned through the file, counting the number of bullet points and output the number into an output file. 
+To implement the HashMapping idea, we took our mhyph.txt file.
+
 If the word was not in the hashmap, we would use our old rule-based implementation as a backup, which is not as 
 accurate but still acceptable. 
 
