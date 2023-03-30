@@ -61,9 +61,9 @@ covered a good range of words.
 Before implementinmg the HashMap idea, we needed a data set of words with their respected syllables. Using the original dataset.txt file, words were split using a bullet point. So we first scanned through the file, by finding and replacing the bullet points with spaces. Seperating them into lines and the further into tokens and counting the number of tokens into the DataSetCountOutput.txt file. Concurrently we also split and replaced each word to become a single word as seen in readableDataSet.txt. To implement the HashMapping idea, we mapped each word from the readableDataSet.txt to the DataSetCountOutput.txt, this gave us almost 170,000 words that had been mapped with their correspoding syllable count.
 
 If the word was not in the hashmap, we would use our old rule-based implementation as a backup, which is not as 
-accurate but still acceptable. 
+accurate but still acceptable. This used our CountSyllables.java code, again this code was a rule based syllable counter which would acheive on average 80% accuracy. And so would still have a good chance of getting the correct number of syllables for the edge case words. CountSyllables worked on the base idea that a switch from vowel to consonant to vowel would be one syllable. With this we could count each change from vowel to consonant and vice versa, in the end dividing the count 'clumpCount' by two to get the number of syllables. Of course just counting vowel-consonant switches wouldn't be enough so we added multiple extra checking methods. For example when does the letter 'y' act as a vowel, for which we chose that if the y is surrounded by consonants then it acts as a vowel, if the word ends in a consonant then a y it will add two to the clump count, if the word ends in 'ey' then add one to the clump count. The CountSyllables code implements many more of these rules in order to count syllables but only gets implemented in cases where words are not accounted for in the hash map.
 
-This produced about 97.6% accuracy on our syllableTests.txt test file, although testing it on the 
+This combination produced about 97.6% accuracy on our syllableTests.txt test file, although testing it on the 
 data which generated the hashmap only produced 99% accuracy. (This may have been due to some discrepencies in the
 provided dataset)
 
