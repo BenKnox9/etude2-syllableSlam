@@ -52,14 +52,13 @@ extra common patterns that increased/decreased the syllable counts, we were able
 this test data, which was about 2190 words (syllableTests.txt).
 
 Unfortunately, this only reached about 88% for easy words and 62% for difficult words in autojudge.
-We then tested the rule-based implementation on a larger dataset (mhyph.txt - http://www.delphiforfun.org/programs/Syllables.htm) which has about 187000 words. This only achieved about 79%. 
+We then tested the rule-based implementation on a larger dataset (dataset.txt - http://www.delphiforfun.org/programs/Syllables.htm) which has about 187000 words. This only achieved about 79%. 
 As adding more rules easily conflicted with the ones we added before, we started thinking about implementing a 
 hashmap based on this dataset, that is to map each word with its expected syllable count. Although this would
 be more time consuming to load in the data to the hashmap, it would be much more accurate, provided our dataset
 covered a good range of words.
 
-Before implementinmg the HashMap idea, we needed a data set of words with their respected syllables. Using the original mhyphs.txt file, words were split using a bullet point. So we first scanned through the file, counting the number of bullet points and output the number into an output file. 
-To implement the HashMapping idea, we took our mhyph.txt file.
+Before implementinmg the HashMap idea, we needed a data set of words with their respected syllables. Using the original dataset.txt file, words were split using a bullet point. So we first scanned through the file, by finding and replacing the bullet points with spaces. Seperating them into lines and the further into tokens and counting the number of tokens into the DataSetCountOutput.txt file. Concurrently we also split and replaced each word to become a single word as seen in readableDataSet.txt. To implement the HashMapping idea, we mapped each word from the readableDataSet.txt to the DataSetCountOutput.txt, this gave us almost 170,000 words that had been mapped with their correspoding syllable count.
 
 If the word was not in the hashmap, we would use our old rule-based implementation as a backup, which is not as 
 accurate but still acceptable. 
