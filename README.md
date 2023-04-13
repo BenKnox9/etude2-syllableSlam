@@ -4,7 +4,7 @@
 
 This program accepts words as input and computes the number of syllables in that word.
 
-## Running Program - Normal usage
+## Running the Program - Normal usage
 After entering a word, it will produce the number of syllables after it.
 ```
 javac SyllableSlamApp.java
@@ -16,65 +16,93 @@ words
 ```
 ## Testing Method: 
 
-To test the program, we passed in a file with words in which to compute the number of syllables, separated by new lines, and compared it to a second file with the expected number of syllables on each line. We then printed the incorrect results out where our number of syllables did not match the expected number. Then a summary of the percentage it passed and total number of tests is printed out.
+To test the program, we passed in a file with words in which to compute the number of syllables, separated by new lines, 
+and compared it to a second file with the expected number of syllables on each line. We printed the incorrect results out 
+where our number of syllables did not match the expected number. Then a summary of the percentage it passed and total 
+number of tests is printed out.
 
 e.g.
 ```
 javac SyllableSlamApp.java
-java SyllableSlamApp.java syllableTests.txt syllableTests_out.txt
-
+java SyllableSlamApp.java testdata_small_in.txt testdata_small_out.txt 
+air 2 1
 bar 2 1
-bomb 2 1
-coup 2 1
+bid 2 1
+blow 2 1
 ...
 acetonemia 5 6
 gastroenterologist 7 6
 academicism 5 6
 Tests Concluded
-Problem count = 42
+Problem count = 51
 Total: 2193
-Percentage: 0.9808481532147743
+Percentage: 0.9767441860465116
+Total execution time: 1256
 ```
 Note: the first number is our calculated number of syllables, following it is the expected number.
 
+## Program Structure
+We used the main method in SyllableSlamApp.java to create our hashmap `syllableHashMap` and then depending on the number of command line arguments passed i.e. if it is zero, it runs normally, if it is two i.e. two file names, it runs in testing mode. These two modes are separated by the two static methods in the `SyllableSlamApp.java`. The main difference between them is that in `testingProgram()` method, we print out the incorrect words with their computed vs expected syllable counts. We also report on the final percentage of correctly computed words based on the two testing files.
 
-## Development Process + Benchmarking
+In `scanWords()`, the input words are expected to be typed into stdin and each syllable count is output on a new line. 
+
+In both methods, if the word is not in our static hashmap, we look to the rule-based method in `CountSyllables.java`, which contains the `countSyllables()` method for computing the syllable counts. 
+
+# Development Process + Benchmarking
+## Pure Rule-based Method
 We first tried to implement the syllable counts for words using a rule based method. This counted the number of
 syllable 'clumps' by counting each time we switched from syllable to consonant and vice versa, then dividing the
 result by two. Then we realised we needed to account for edge cases, such as when it ends in a consonant followed
-by 'y', we want to increase the syllable count by two, but only increase it by one if it ends in 'ey'. We also
-wanted to increase the count for patterns such as le, re, ey.
+by 'y', we want to increase the syllable count, and increase the count if it ends a y or is y followed by a 
+consonant but not if there is a vowel clump after it. 
+We also wanted to increase the count for patterns such as le, re, ey, which made us check for special cases when the
+last letter was 'e' or 'y', and increased the syllable count depending on what the second last or third last letters were.
+E.g. Consonant+y, Consonant+le, Consonant+re.
 
-We created our own test data set from words off syllablecount.com and created a test file with all the words.
-In another file we added all the expected syllable counts. These syllable counts were compared to our calculated 
-syllable count, which produced about 89% accuracy. After modifying our rule-based implementation to include for 
+We created our own test data set from words off syllablecount.com and created a testdata_small_in.txt which contains 
+all the words.
+In another file (testdata_small_out.txt) we added all the expected syllable counts. These syllable counts were compared 
+to our calculated syllable count, which produced about 89% accuracy. After modifying our rule-based implementation to 
+include for 
 extra common patterns that increased/decreased the syllable counts, we were able to reach 94% accuracy by using the 
-this test data, which was about 2190 words (syllableTests.txt).
+this test data, which was about 2190 words (testdata_small_in.txt).
 
-Unfortunately, this only reached about 88% for easy words and 62% for difficult words in autojudge.
+## Pure Rule-based Results
+Unfortunately, using a pure-ruled based method only reached about 88% for easy words and 62% for difficult words in AutoJudge.
 We then tested the rule-based implementation on a larger dataset (dataset.txt - http://www.delphiforfun.org/programs/Syllables.htm) which has about 187000 words. This only achieved about 79%. 
 As adding more rules easily conflicted with the ones we added before, we started thinking about implementing a 
 hashmap based on this dataset, that is to map each word with its expected syllable count. Although this would
 be more time consuming to load in the data to the hashmap, it would be much more accurate, provided our dataset
 covered a good range of words.
 
-Before implementinmg the HashMap idea, we needed a data set of words with their respected syllables. Using the original dataset.txt file, words were split using a bullet point. So we first scanned through the file, by finding and replacing the bullet points with spaces. Seperating them into lines and the further into tokens and counting the number of tokens into the DataSetCountOutput.txt file. Concurrently we also split and replaced each word to become a single word as seen in readableDataSet.txt. To implement the HashMapping idea, we mapped each word from the readableDataSet.txt to the DataSetCountOutput.txt, this gave us almost 170,000 words that had been mapped with their correspoding syllable count.
+## Getting our syllableHashMap from dataset.txt
+Before implementing the HashMap idea, we needed a file containing words (dataset_keys.txt) and another one containing their respective syllable counts (dataset_values.txt). 
 
+In the original dataset.txt file, syllables were distinguised using a bullet point/unknown character. To get the values for the hashmap, we needed to compute the syllable counts for these bullet-point-separated syllable words. We also needed the original words from the dataset for the keys in our hashmap. 
+
+To get dataset.txt's respective syllable counts, we first found and replaced the bullet points with spaces and saved this file as dataset_space_separated.txt. We then used `PrintDataSetValues.java` to read in dataset_space_separated.txt to get the number of tokens on each line, which were also the syllable counts for the words in dataset.txt. The syllable counts were output to the terminal, which we appended to dataset_values.txt by using the command: `java PrintDataSetValues.java > dataset_values.txt`
+
+To get the clean words in dataset.txt (without bullet points) we found and replaced the bullet points in dataset.txt with an empty string. These clean words were then stored in dataset_keys.txt. 
+
+We then implemented the hashmap by making each line in dataset_keys.txt a key and its corresponding hashmap value came from the same line in dataset_values.txt. This produced a dictionary of almost 170,000 words that we know the syllable counts of.
+
+## Method with Hashmap
 If the word was not in the hashmap, we would use our old rule-based implementation as a backup, which is not as 
-accurate but still acceptable. This used our CountSyllables.java code, again this code was a rule based syllable counter which would acheive on average 80% accuracy. And so would still have a good chance of getting the correct number of syllables for the edge case words. CountSyllables worked on the base idea that a switch from vowel to consonant to vowel would be one syllable. With this we could count each change from vowel to consonant and vice versa, in the end dividing the count 'clumpCount' by two to get the number of syllables. Of course just counting vowel-consonant switches wouldn't be enough so we added multiple extra checking methods. For example when does the letter 'y' act as a vowel, for which we chose that if the y is surrounded by consonants then it acts as a vowel, if the word ends in a consonant then a y it will add two to the clump count, if the word ends in 'ey' then add one to the clump count. The CountSyllables code implements many more of these rules in order to count syllables but only gets implemented in cases where words are not accounted for in the hash map.
+accurate but still acceptable. This used our `CountSyllables.java` code, again this code was a rule based syllable counter which would acheive on average 80% accuracy. And so would still have a good chance of getting the correct number of syllables for the edge case words. `CountSyllables` worked on the base idea that a switch from vowel to consonant to vowel would be one syllable. With this we could count each change from vowel to consonant and vice versa, in the end dividing the count 'clumpCount' by two to get the number of syllables. Of course just counting vowel-consonant switches wouldn't be enough so we added multiple extra checking methods. For example when does the letter 'y' act as a vowel, for which we chose that if the y is surrounded by consonants then it acts as a vowel, if the word ends in a consonant then a 'y' it will add two to the clump count, if the word ends in 'ey' then add one to the clump count. The `CountSyllables.java` code implements many more of these rules in order to count syllables but only gets implemented in cases where words are not accounted for in the hash map.
 
-This combination produced about 97.6% accuracy on our syllableTests.txt test file, although testing it on the 
+## Results with Hashmap + Other attempts
+This combination produced about 97.6% accuracy on our testdata_small_in.txt test file, although testing it on the 
 data which generated the hashmap only produced 99% accuracy. (This may have been due to some discrepencies in the
 provided dataset)
 
 This passed autojudge, with 97% accuracy on easy words and 80% on difficult words and is our best attempt yet. 
-We also tested it on a much larger dataset of 25000 words, producing 99% accuracy, and it took less than a second
+We also tested it on a much larger dataset of 25000 words (testdata_large.txt), producing 99% accuracy, and it took less than a second
 to compute.
 
 As there were sometimes multiple words on a line in the data set used for generating our hashmap, we tried 
 splitting each line first into separate words before passing it into our hashmap. Unfortunately, this was 
 easy to generate more errors, producing 98% accuracy instead of 99% for our original dataset and slightly less than
-98% for syllableTests.txt. This was likely due to different formats in the words e.g. hyphens used between
+98% for testdata_small_in.txt. This was likely due to different formats in the words e.g. hyphens used between
 or not between words and sometimes combining syllable counts for words introduced more errors if not done 
 properly. 
 
@@ -86,7 +114,7 @@ e.g. 'well-summarized' and 'avery', 'very high frequency' that are combined by h
 also actually words from the dictionary, which would mean they wouldn't change as much, it was alright to use a 
 hashmap with slightly more repetition than necessary.
 
-Another idea we had was to use the already split syllable words e.g. mhyph_spaces.txt and map that into unique 'keys' for
+Another idea we had was to use the already split syllable words e.g. dataset_space_separated.txt and map that into unique 'keys' for
 the hashmap, so that for each key in the hashmap, a syllable count is added on. This had generated a lot less keys e.g.
 ~20000 unique keys and ran a lot more quickly for generating the hashmap, but was difficult to implement in terms of
 splitting the word up into those syllables/'unique keys', as they may often overlap/be multiple possible combinations. 
@@ -96,7 +124,7 @@ range for the input words, our current implementation of counting the number of 
 the most effective way so far. 
 
 ## Helper classes
-We used FileManip class as a helper class for generating counts of syllables in words from mhyph_spaces.txt
+We used `PrintDataSetValues.java` as a helper class for generating counts of syllables in words from dataset_space_separated.txt.
 
 
 ## Authors and acknowledgment
