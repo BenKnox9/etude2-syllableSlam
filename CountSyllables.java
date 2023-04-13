@@ -145,7 +145,7 @@ public class CountSyllables {
     /**
      * Checks for special cases around last letter e.g. if it is C+y,
      * C+le or C+re, should add two extra clumpCounts i.e. one syllable count. If it
-     * is ending with ey or C+V or V+C, it just adds one syllable counts, otherwise
+     * is ending with ey or C+V or V+C, it just adds one clumpCount, otherwise
      * adds none.
      * 
      * @param word word with last letter to check
